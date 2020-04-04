@@ -7,31 +7,45 @@ import yellow from '@material-ui/core/colors/yellow'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import List from '@material-ui/core/List'
 import ListSubheader from '@material-ui/core/ListSubheader'
+import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import EnvItem from './EnvItem'
+import { switchToEnv } from './lib'
+
+const useStyles = makeStyles({
+  list: {
+    minWidth: '320px',
+    padding: 0,
+  }
+})
 
 function EnvList () {
+  const classes = useStyles()
+
   return (
-    <List>
+    <List className={classes.list}>
       <ListSubheader>Switch to</ListSubheader>
       <EnvItem
         backgroundColor={red['200']}
         body={
           <Typography variant='body1'>Prod</Typography>
         }
+        onAction={async () => await switchToEnv('prod')}
       />
       <EnvItem
         backgroundColor={orange['200']}
         body={
           <Typography variant='body1'>Stage</Typography>
         }
+        onAction={async () => await switchToEnv('stage')}
       />
       <EnvItem
         backgroundColor={yellow['200']}
         body={
           <Typography variant='body1'>Feature</Typography>
         }
+        onAction={async () => await switchToEnv('feature')}
       />
       <EnvItem
         backgroundColor={yellow['200']}
@@ -63,6 +77,7 @@ function EnvList () {
         body={
           <Typography variant='body1'>Local</Typography>
         }
+        onAction={async () => await switchToEnv('local')}
       />
     </List>
   )
