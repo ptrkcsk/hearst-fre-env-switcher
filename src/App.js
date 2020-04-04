@@ -3,7 +3,7 @@ import EnvList from './EnvList'
 
 function App () {
   return (
-    <EnvList onSwitch={console.log}/>
+    <EnvList/>
   )
 }
 
