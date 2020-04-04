@@ -1,7 +1,6 @@
 import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'
 import ListItem from '@material-ui/core/ListItem'
-import { makeStyles } from '@material-ui/core/styles'
 import Tooltip from '@material-ui/core/Tooltip'
 import ArrowForward from '@material-ui/icons/ArrowForward'
 import Launch from '@material-ui/icons/Launch'
@@ -12,17 +11,9 @@ const actions = {
   OPEN_IN_NEW_TAB: 'OPEN_IN_NEW_TAB'
 }
 
-const useStyles = makeStyles({
-  root: {
-    backgroundColor: props => props.backgroundColor,
-  }
-})
-
-function EnvItem ({ backgroundColor, body, onAction }) {
-  const classes = useStyles({ backgroundColor })
-
+function EnvItem ({ body, onAction }) {
   return (
-    <ListItem className={classes.root}>
+    <ListItem>
       <Box flexGrow={1}>
         {body}
       </Box>
