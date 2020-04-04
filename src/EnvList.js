@@ -9,7 +9,7 @@ import PrEnvItem from './PrEnvItem'
 
 const useStyles = makeStyles({
   list: {
-    minWidth: '320px',
+    minWidth: '250px',
     padding: 0,
   }
 })
