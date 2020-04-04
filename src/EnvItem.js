@@ -18,7 +18,7 @@ function EnvItem ({ body, disabled, onAction }) {
         {body}
       </Box>
 
-      <Tooltip title='Open in current tab'>
+      <Tooltip title='Open in current tab' enterDelay={500}>
         <IconButton
           disabled={disabled}
           onClick={() => onAction(actions.OPEN_IN_CURRENT_TAB)}
