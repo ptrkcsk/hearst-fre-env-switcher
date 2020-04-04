@@ -8,6 +8,7 @@ function getEnvUrl (env, site) {
   if (env === 'local') return `http://${site}.fre-hdm.docker`
   if (env === 'prod') return `https://${site}.com`
   if (env === 'stage') return `https://${site}.kubestage.hearstapps.net`
+  if (/^\d+$/.test(env)) return `https://${site}-${env}.kubefeature.hearstapps.net`
 
   throw new Error(`Unexpected environment '${env}'`)
 }
@@ -19,11 +20,10 @@ function getEnvUrl (env, site) {
 function getSite (url) {
   const hostnameParts = new URL(url).hostname.split('.').reverse()
   const tld = hostnameParts[0]
-  const domain = hostnameParts[1]
 
-  if (tld === 'com') return domain
+  if (tld === 'com') return hostnameParts[1]
   if (tld === 'docker') return hostnameParts[2]
-  if (tld === 'net') return hostnameParts[3]
+  if (tld === 'net') return hostnameParts[3].replace(/-\d+/, '')
 
   throw new Error(`Can't determine site from URL '${url}'`)
 }

@@ -11,7 +11,7 @@ const actions = {
   OPEN_IN_NEW_TAB: 'OPEN_IN_NEW_TAB'
 }
 
-function EnvItem ({ body, onAction }) {
+function EnvItem ({ body, disabled, onAction }) {
   return (
     <ListItem>
       <Box flexGrow={1}>
@@ -19,12 +19,18 @@ function EnvItem ({ body, onAction }) {
       </Box>
 
       <Tooltip title='Open in current tab'>
-        <IconButton onClick={() => onAction(actions.OPEN_IN_CURRENT_TAB)}>
+        <IconButton
+          disabled={disabled}
+          onClick={() => onAction(actions.OPEN_IN_CURRENT_TAB)}
+        >
           <ArrowForward/>
         </IconButton>
       </Tooltip>
       <Tooltip title='Open in new tab'>
-        <IconButton onClick={() => onAction(actions.OPEN_IN_NEW_TAB)}>
+        <IconButton
+          disabled={disabled}
+          onClick={() => onAction(actions.OPEN_IN_NEW_TAB)}
+        >
           <Launch/>
         </IconButton>
       </Tooltip>
