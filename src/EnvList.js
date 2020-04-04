@@ -21,7 +21,8 @@ function EnvList () {
 
   return (
     <List className={classes.list}>
-      <ListSubheader>Switch to</ListSubheader>
+      <ListSubheader>Switch FRE environment</ListSubheader>
+
       <EnvItem
         body={
           <Typography variant='body1'>Prod</Typography>
