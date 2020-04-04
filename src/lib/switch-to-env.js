@@ -1,16 +1,27 @@
 /**
  * @param {string} env
- * @param {string} site
+ * @param {string} url
  * @return {string}
  */
-function getEnvUrl (env, site) {
-  if (env === 'feature') return `https://${site}.kubefeature.hearstapps.net`
-  if (env === 'local') return `http://${site}.fre-hdm.docker`
-  if (env === 'prod') return `https://${site}.com`
-  if (env === 'stage') return `https://${site}.kubestage.hearstapps.net`
-  if (/^\d+$/.test(env)) return `https://${site}-${env}.kubefeature.hearstapps.net`
+function getEnvUrl (env, url) {
+  const site = getSite(url)
+  url = new URL(url)
 
-  throw new Error(`Unexpected environment '${env}'`)
+  if (env === 'feature') {
+    url.hostname = `${site}.kubefeature.hearstapps.net`
+  } else if (env === 'local') {
+    url.hostname = `${site}.fre-hdm.docker`
+  } else if (env === 'prod') {
+    url.hostname = `${site}.com`
+  } else if (env === 'stage') {
+    url.hostname = `${site}.kubestage.hearstapps.net`
+  } else if (/^\d+$/.test(env)) {
+    url.hostname = `${site}-${env}.kubefeature.hearstapps.net`
+  } else {
+    throw new Error(`Unexpected environment '${env}'`)
+  }
+
+  return url.toString()
 }
 
 /**
@@ -36,7 +47,7 @@ export default async function switchToEnv (env) {
   return new Promise(function (resolve) {
     window.chrome.tabs.query({ active: true }, function ([tab]) {
       window.chrome.tabs.update({
-        url: getEnvUrl(env, getSite(tab.url))
+        url: getEnvUrl(env, tab.url)
       })
 
       resolve()
