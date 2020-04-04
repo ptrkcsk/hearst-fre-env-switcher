@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
+import EnvList from './EnvList'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-    </div>
-  );
+    <EnvList onSwitch={console.log}/>
+  )
 }
 
-export default App;
+export default App
