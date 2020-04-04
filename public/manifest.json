@@ -1,5 +1,5 @@
 {
-  "name": "Hearst Environment Switcher",
+  "name": "FRE Environment Switcher",
   "version": "1.0",
   "manifest_version": 2,
   "browser_action": {
