@@ -21,7 +21,7 @@ function PrEnvItem () {
           flexGrow={1}
         >
           <Typography variant='body1'>PR</Typography>
-          <Box marginLeft='1rem'>
+          <Box marginLeft='0.5rem'>
             <TextField
               error={textFieldError}
               InputProps={{
