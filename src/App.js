@@ -1,5 +1,6 @@
-import { CssBaseline, useMediaQuery } from '@material-ui/core'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import React from 'react'
 import EnvList from './EnvList'
 
