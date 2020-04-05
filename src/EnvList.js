@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import EnvItem from './EnvItem'
-import { switchToEnv } from './lib'
+import { switchEnv } from './lib'
 import PrEnvItem from './PrEnvItem'
 
 const useStyles = makeStyles({
@@ -13,6 +13,13 @@ const useStyles = makeStyles({
     padding: 0,
   }
 })
+
+function getSwitchEnv (env) {
+  return async function (newTab) {
+    debugger
+    await switchEnv({ env, newTab })
+  }
+}
 
 function EnvList () {
   const classes = useStyles()
@@ -25,21 +32,21 @@ function EnvList () {
         body={
           <Typography variant='body1'>Prod</Typography>
         }
-        onAction={async () => await switchToEnv('prod')}
+        onOpen={getSwitchEnv('prod')}
       />
 
       <EnvItem
         body={
           <Typography variant='body1'>Stage</Typography>
         }
-        onAction={async () => await switchToEnv('stage')}
+        onOpen={getSwitchEnv('stage')}
       />
 
       <EnvItem
         body={
           <Typography variant='body1'>Feature</Typography>
         }
-        onAction={async () => await switchToEnv('feature')}
+        onOpen={getSwitchEnv('feature')}
       />
 
       <PrEnvItem/>
@@ -48,7 +55,7 @@ function EnvList () {
         body={
           <Typography variant='body1'>Local</Typography>
         }
-        onAction={async () => await switchToEnv('local')}
+        onOpen={getSwitchEnv('local')}
       />
     </List>
   )

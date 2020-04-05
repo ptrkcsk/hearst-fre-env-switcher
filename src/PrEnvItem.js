@@ -4,7 +4,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import Typography from '@material-ui/core/Typography'
 import React, { useState } from 'react'
 import EnvItem from './EnvItem'
-import { switchToEnv } from './lib'
+import { switchEnv } from './lib'
 
 function PrEnvItem () {
   const [envItemDisabled, setEnvItemDisabled] = useState(false)
@@ -41,8 +41,8 @@ function PrEnvItem () {
         </Box>
       }
       disabled={envItemDisabled}
-      onAction={async function () {
-        if (prNumber) return await switchToEnv(prNumber)
+      onOpen={async function (newTab) {
+        if (prNumber) return await switchEnv({env: prNumber, newTab})
 
         setEnvItemDisabled(true)
         setTextFieldError(true)

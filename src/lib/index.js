@@ -1,5 +1,5 @@
-import switchToEnv from './switch-to-env'
+import switchEnv from './switch-env'
 
 export {
-  switchToEnv
+  switchEnv
 }

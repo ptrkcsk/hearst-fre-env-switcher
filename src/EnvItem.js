@@ -6,12 +6,7 @@ import ArrowForward from '@material-ui/icons/ArrowForward'
 import Launch from '@material-ui/icons/Launch'
 import React from 'react'
 
-const actions = {
-  OPEN_IN_CURRENT_TAB: 'OPEN_IN_CURRENT_TAB',
-  OPEN_IN_NEW_TAB: 'OPEN_IN_NEW_TAB'
-}
-
-function EnvItem ({ body, disabled, onAction }) {
+function EnvItem ({ body, disabled, onOpen }) {
   return (
     <ListItem>
       <Box flexGrow={1}>
@@ -21,7 +16,7 @@ function EnvItem ({ body, disabled, onAction }) {
       <Tooltip title='Open in current tab' enterDelay={500}>
         <IconButton
           disabled={disabled}
-          onClick={() => onAction(actions.OPEN_IN_CURRENT_TAB)}
+          onClick={() => onOpen(false)}
         >
           <ArrowForward/>
         </IconButton>
@@ -29,7 +24,7 @@ function EnvItem ({ body, disabled, onAction }) {
       <Tooltip title='Open in new tab'>
         <IconButton
           disabled={disabled}
-          onClick={() => onAction(actions.OPEN_IN_NEW_TAB)}
+          onClick={() => onOpen(true)}
         >
           <Launch/>
         </IconButton>
@@ -37,7 +32,5 @@ function EnvItem ({ body, disabled, onAction }) {
     </ListItem>
   )
 }
-
-EnvItem.actions = actions
 
 export default EnvItem
