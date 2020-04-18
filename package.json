@@ -12,7 +12,8 @@
     "got": "^10.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "tld-extract": "^1.1.2"
   },
   "scripts": {
     "build": "react-scripts build",
