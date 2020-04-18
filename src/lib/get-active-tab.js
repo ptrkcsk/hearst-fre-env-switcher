@@ -1,5 +1,5 @@
 /**
- * @return {Promise<Tab>}
+ * @return {Promise<Tab|void>}
  */
 export default async function getActiveTab () {
   return new Promise(function (resolve) {
