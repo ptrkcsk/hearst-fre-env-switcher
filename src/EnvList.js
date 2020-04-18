@@ -16,7 +16,6 @@ const useStyles = makeStyles({
 
 function getSwitchEnv (env) {
   return async function (newTab) {
-    debugger
     await switchEnv({ env, newTab })
   }
 }
