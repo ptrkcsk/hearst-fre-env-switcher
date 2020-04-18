@@ -1,14 +1,19 @@
+import getTld from './get-tld'
+
 /**
  * @param {string} url
  * @return {string}
  */
 export default function getSite (url) {
-  const hostnameParts = new URL(url).hostname.split('.').reverse()
-  const tld = hostnameParts[0]
+  const { hostname } = new URL(url)
+  const tld = getTld(hostname)
+  let remove
 
-  if (tld === 'com') return hostnameParts[1]
-  if (tld === 'docker') return hostnameParts[2]
-  if (tld === 'net') return hostnameParts[3].replace(/-\d+/, '')
+  if (hostname.endsWith('hearstapps.net')) {
+    remove = /(-\d+)?\.kube(feature|stage)\.hearstapps\.net/
+  } else {
+    remove = `.${tld}`
+  }
 
-  throw new Error(`Can't determine site from URL '${url}'`)
+  return hostname.replace(remove, '')
 }
