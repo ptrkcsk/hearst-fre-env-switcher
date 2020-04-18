@@ -1,6 +1,6 @@
-const sites = require('./sites.json')
-const getTld = require('./get-tld')
+import getTld from './get-tld'
+import sites from './sites.json'
 
-module.exports = function getSiteTlds () {
+export default function getSiteTlds () {
   return [...new Set(sites.map(getTld).sort())]
 }

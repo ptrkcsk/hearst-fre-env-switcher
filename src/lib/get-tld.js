@@ -1,9 +1,9 @@
-const tldExtract = require('tld-extract').parse_host
+import { parse_host as tldExtract } from 'tld-extract'
 
 /**
  * @param {string} hostname
  * @return {string}
  */
-module.exports = function getTld (hostname) {
+export default function getTld (hostname) {
   return tldExtract(hostname).tld
 }
