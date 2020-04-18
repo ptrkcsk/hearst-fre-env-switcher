@@ -11,6 +11,9 @@ import openInNewTab from './open-in-new-tab'
  */
 export default async function switchEnv ({ env, newTab = false }) {
   const activeTab = await getActiveTab()
+
+  if (!activeTab) return console.info(`Would switch to env '${env}'`)
+
   const open = newTab ? openInNewTab : openInCurrentTab
   const url = getEnvUrl(env, activeTab.url)
 
