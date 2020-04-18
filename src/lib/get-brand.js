@@ -1,4 +1,12 @@
-import getTld from './get-tld'
+import { default as tlds } from './site-tlds.json'
+
+tlds.push('docker', 'net')
+
+const endsWithTld = new RegExp(`(${tlds.join('|')})$`)
+
+function getTld (url) {
+  return url.match(endsWithTld)[0]
+}
 
 /**
  * @param {string} url
@@ -15,5 +23,7 @@ export default function getBrand (url) {
     remove = `.${tld}`
   }
 
-  return hostname.replace(remove, '')
+  return hostname
+    .replace(remove, '')
+    .replace(/^www\./, '')
 }

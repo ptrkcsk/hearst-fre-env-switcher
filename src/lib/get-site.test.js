@@ -1,14 +1,14 @@
 import getBrand from './get-brand'
-import getSiteTlds from './get-site-tlds'
+import siteTlds from './site-tlds.json'
 
 test.each([
   // From prod
   [
-    getSiteTlds().map(tld => `https://brand-name.${tld}`),
+    siteTlds.map(tld => `https://www.brand-name.${tld}`),
     'brand-name'
   ],
   [
-    getSiteTlds().map(tld => `https://subdomain.brand-name.${tld}`),
+    siteTlds.map(tld => `https://www.subdomain.brand-name.${tld}`),
     'subdomain.brand-name'
   ],
 
