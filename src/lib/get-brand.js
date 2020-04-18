@@ -4,7 +4,7 @@ import getTld from './get-tld'
  * @param {string} url
  * @return {string}
  */
-export default function getSite (url) {
+export default function getBrand (url) {
   const { hostname } = new URL(url)
   const tld = getTld(hostname)
   let remove
