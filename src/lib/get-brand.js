@@ -1,12 +1,4 @@
-import { default as tlds } from './site-tlds.json'
-
-tlds.push('docker', 'net')
-
-const endsWithTld = new RegExp(`(${tlds.join('|')})$`)
-
-function getTld (url) {
-  return url.match(endsWithTld)[0]
-}
+import splitHostname from './split-hostname'
 
 /**
  * @param {string} url
@@ -14,7 +6,7 @@ function getTld (url) {
  */
 export default function getBrand (url) {
   const { hostname } = new URL(url)
-  const tld = getTld(hostname)
+  const { tld } = splitHostname(hostname)
   let remove
 
   if (hostname.endsWith('hearstapps.net')) {
