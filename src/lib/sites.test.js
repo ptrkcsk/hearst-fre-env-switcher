@@ -1,5 +1,5 @@
 const sites = require('./sites.json')
-const tlds = Object.keys(require('tld-extract/effective_tld_names.json'))
+const tlds = Object.keys(require('tld-extract/effective_tld_names.json').icann)
 
 const endsInTld = new RegExp(`${tlds.join('|')}$`)
 
