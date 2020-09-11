@@ -10,7 +10,7 @@ export default function getBrand (url) {
   let remove
 
   if (hostname.endsWith('hearstapps.net')) {
-    remove = /(-\d+)?\.kube(feature|stage)\.hearstapps\.net/
+    remove = /(-\d+)?\.(kube)?(feature|stage)\.hearstapps\.net/
   } else {
     remove = `.${tld}`
   }

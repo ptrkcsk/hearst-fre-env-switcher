@@ -6,7 +6,7 @@ import openInNewTab from './open-in-new-tab'
 /**
  * @param {object} params
  * @param {string} params.env
- * @param {boolean} params.newTab
+ * @param {boolean} [params.newTab]
  * @return {Promise<void>}
  */
 export default async function switchEnv ({ env, newTab = false }) {

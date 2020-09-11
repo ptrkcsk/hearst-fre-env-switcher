@@ -13,16 +13,17 @@ export default function getEnvUrl (env, url) {
   url.protocol = 'https://'
 
   if (env === 'feature') {
-    url.hostname = `${brand}.kubefeature.hearstapps.net`
+    url.hostname = `${brand}.feature.hearstapps.net`
   } else if (env === 'local') {
     url.hostname = `${brand}.fre-hdm.docker`
     url.protocol = 'http://'
   } else if (env === 'prod') {
     url.hostname = `${brand}.${brandTlds[brand]}`
   } else if (env === 'stage') {
-    url.hostname = `${brand}.kubestage.hearstapps.net`
+    url.hostname = `${brand}.stage.hearstapps.net`
   } else if (/^\d+$/.test(env)) {
-    url.hostname = `${brand}-${env}.kubefeature.hearstapps.net`
+    // `env` is a PR number
+    url.hostname = `${brand}-${env}.feature.hearstapps.net`
   } else {
     throw new Error(`Unexpected environment '${env}'`)
   }

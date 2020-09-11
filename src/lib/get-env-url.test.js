@@ -12,19 +12,19 @@ describe('getEnvUrl', function () {
     [
       '123',
       'http://brand-name.fre-hdm.docker/',
-      'https://brand-name-123.kubefeature.hearstapps.net/',
+      'https://brand-name-123.feature.hearstapps.net/',
     ],
     // local → feature
     [
       'feature',
       'http://brand-name.fre-hdm.docker/',
-      'https://brand-name.kubefeature.hearstapps.net/',
+      'https://brand-name.feature.hearstapps.net/',
     ],
     // local → stage
     [
       'stage',
       'http://brand-name.fre-hdm.docker/',
-      'https://brand-name.kubestage.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
     ],
     // local → prod
     [
@@ -42,19 +42,19 @@ describe('getEnvUrl', function () {
     [
       '123',
       'https://brand-name-123.kubefeature.hearstapps.net/',
-      'https://brand-name-123.kubefeature.hearstapps.net/',
+      'https://brand-name-123.feature.hearstapps.net/',
     ],
     // pr → feature
     [
       'feature',
       'https://brand-name-123.kubefeature.hearstapps.net/',
-      'https://brand-name.kubefeature.hearstapps.net/',
+      'https://brand-name.feature.hearstapps.net/',
     ],
     // pr → stage
     [
       'stage',
       'https://brand-name-123.kubefeature.hearstapps.net/',
-      'https://brand-name.kubestage.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
     ],
     // pr → prod
     [
@@ -72,19 +72,19 @@ describe('getEnvUrl', function () {
     [
       '123',
       'https://brand-name.kubefeature.hearstapps.net/',
-      'https://brand-name-123.kubefeature.hearstapps.net/',
+      'https://brand-name-123.feature.hearstapps.net/',
     ],
     // feature → feature
     [
       'feature',
       'https://brand-name.kubefeature.hearstapps.net/',
-      'https://brand-name.kubefeature.hearstapps.net/',
+      'https://brand-name.feature.hearstapps.net/',
     ],
     // feature → stage
     [
       'stage',
       'https://brand-name-123.kubefeature.hearstapps.net/',
-      'https://brand-name.kubestage.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
     ],
     // feature → prod
     [
@@ -95,31 +95,31 @@ describe('getEnvUrl', function () {
     // stage → local
     [
       'local',
-      'https://brand-name.kubestage.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
       'http://brand-name.fre-hdm.docker/',
     ],
     // stage → pr
     [
       '123',
-      'https://brand-name.kubestage.hearstapps.net/',
-      'https://brand-name-123.kubefeature.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
+      'https://brand-name-123.feature.hearstapps.net/',
     ],
     // stage → feature
     [
       'feature',
-      'https://brand-name.kubestage.hearstapps.net/',
-      'https://brand-name.kubefeature.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
+      'https://brand-name.feature.hearstapps.net/',
     ],
     // stage → stage
     [
       'stage',
-      'https://brand-name.kubestage.hearstapps.net/',
-      'https://brand-name.kubestage.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
+      'https://brand-name.stage.hearstapps.net/',
     ],
     // stage → prod
     [
       'prod',
-      'https://caranddriver.kubestage.hearstapps.net/',
+      'https://caranddriver.stage.hearstapps.net/',
       'https://caranddriver.com/',
     ],
     // prod → local
@@ -132,19 +132,19 @@ describe('getEnvUrl', function () {
     [
       '123',
       'https://caranddriver.com/',
-      'https://caranddriver-123.kubefeature.hearstapps.net/',
+      'https://caranddriver-123.feature.hearstapps.net/',
     ],
     // prod → feature
     [
       'feature',
       'https://caranddriver.com/',
-      'https://caranddriver.kubefeature.hearstapps.net/',
+      'https://caranddriver.feature.hearstapps.net/',
     ],
     // prod → stage
     [
       'stage',
       'https://caranddriver.com/',
-      'https://caranddriver.kubestage.hearstapps.net/',
+      'https://caranddriver.stage.hearstapps.net/',
     ],
     // prod → prod
     [
