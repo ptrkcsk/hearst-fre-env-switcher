@@ -14,7 +14,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3",
-    "tld-extract": "^2.0.0"
+    "tld-extract": "^2.0.0",
+    "web-ext": "^5.0.0"
   },
   "scripts": {
     "build": "react-scripts build",
