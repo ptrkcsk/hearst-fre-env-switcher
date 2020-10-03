@@ -17,5 +17,5 @@ export default async function switchEnv ({ env, newTab = false }) {
   const open = newTab ? openInNewTab : openInCurrentTab
   const url = getEnvUrl(env, activeTab.url)
 
-  open(url)
+  await open(url)
 }
